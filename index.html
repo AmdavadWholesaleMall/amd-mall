@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Amdavad Wholesale Mall</title>
+    <style>
+        /* Isse pura content screen ke beech mein aayega */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-card h1 { color: #1e40af; margin-bottom: 5px; font-size: 2.5rem; }
+        .login-card p { color: #666; margin-bottom: 30px; }
+
+        .input-group { text-align: left; margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #333; }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box; /* Isse input box bahar nahi nikalega */
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #1e40af;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover { background: #1e3a8a; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <div class="text-center mb-4">
+    <!-- Aapki logo image yahan aayegi -->
+    <!-- Logo Section -->
+<div class="text-center mb-4">
+    <img src="data:image/jpeg;base64,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" " 
+            " alt="AWM Logo" style="width: 80px; height: auto; margin: 0 auto; display: block;">
+ 
+</div>
+
+    <p style="color: #666; margin-top: 10px; font-weight: 500;">Amdavad Wholesale Mall</p>
+</div>
+
+
+        <form action="web.html" id="loginForm">
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="custName" placeholder="Jaise: Amit Shah" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="example@mail.com" required>
+            </div>
+               <!-- Mobile Number Input -->
+<div class="input-group">
+    <label>Mobile Number</label>
+    <input type="tel" id="userMobile" placeholder="98765 43210" pattern="[0-9]{10}" maxlength="10" required>
+</div>
+
+            <button type="submit">Login Karein 🚀</button>
+
+        </form>
+    </div>
+ 
+
+<script>
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', (e) => {
+        // Yeh line mobile par error aane se rokegi
+        e.preventDefault(); 
+
+        const userName = document.getElementById('custName').value;
+        const userMobile = document.getElementById('userMobile').value;
+        
+        // Data save ho raha hai
+        localStorage.setItem('loggedInUser', userName);
+        localStorage.setItem('userMobile', userMobile);
+
+        // Yeh line user ko web.html par le jayegi
+        window.location.href = "web.html"; 
+    });
+</script>
+
+
+
+
+</body>
+</html>
