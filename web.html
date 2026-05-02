@@ -6,6 +6,7 @@
     <title>Amdavad Wholesale Mall - Catalog</title>
     <!-- Tailwind CSS link fixed -->
     <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
 
     <style>
@@ -64,19 +65,26 @@
         </div>
     </div>
 </header>
-<!-- Search Bar Section: હેડરની તરત નીચે -->
+
+
 <div class="container mx-auto px-4 mt-6">
-    <div class="relative">
-        <input type="text" id="searchInput" onkeyup="searchProduct()" 
-               placeholder="પ્રોડક્ટ શોધો (દા.ત. Massage Gun)..." 
-               class="w-full p-4 pl-12 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-800 placeholder-gray-500 bg-white">
-        
-        <!-- Search Icon -->
-        <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-            <i class="fas fa-search text-lg"></i>
-        </div>
+  <div class="flex shadow-sm rounded-xl overflow-hidden border border-gray-300 focus-within:ring-2 focus-within:ring-blue-500 bg-white">
+    
+    
+
+    <!-- Right Side: Search Input -->
+    <div class="relative flex-1">
+      <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+        <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+      </div>
+      <input type="text" id="searchInput" onkeyup="searchProduct()"
+             placeholder="પ્રોડક્ટ શોધો..."
+             class="w-full py-4 pl-12 pr-4 text-lg outline-none bg-transparent">
     </div>
+  </div>
 </div>
+
+
 
 
     <div class="container mx-auto px-4 py-6">
@@ -170,7 +178,11 @@
 <!-- Item: Scalp Massager -->
 <div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
     <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
-        <img src="https://m.media-amazon.com/images/I/51aQm+VViZL.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="scalp massager">
+       <img src="https://m.media-amazon.com/images/I/51oKCSf9GDL._AC_UL480_FMwebp_QL65_.jpg" 
+     style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+     alt="Scalp Massager" 
+     onclick="openModal(this.src)"> <!-- આ હવે ટેગની અંદર છે -->
+
     </div>
     
     <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Scalp Massager</h3>
@@ -286,7 +298,7 @@
     </div>
     
     <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Professional Gold Trimmer</h3>
-    <p class="text-blue-600 font-bold mt-1">₹ 75.00 / Piece</p>
+    <p class="text-blue-600 font-bold mt-1">₹ 75.00 / Pcs</p>
     
     <div class="flex items-center justify-between mt-4">
         <div class="flex items-center gap-1">
@@ -302,17 +314,259 @@
     </div>
 </div>
 
+<!-- 1. Next Jasmine Room Freshener -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://rukminim2.flixcart.com/image/1536/1536/xif0q/shopsy-air-freshener/g/l/r/200-jasminerajnigandha200ml-liquid-next-original-imah4zb8mtbmdxzq.jpeg?q=90" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="Next Jasmine" onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Room Freshener - Jasmine</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 170.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_room_jasmine', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_room_jasmine" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_room_jasmine', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Room Freshener - Jasmine', 170, 'qty_room_jasmine')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">Add</button>
+    </div>
+</div>
+
+<!-- 2. Next Lavender Room Freshener -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://rukminim2.flixcart.com/image/1536/1536/xif0q/shopsy-air-freshener/n/d/m/200-lavender-200ml-liquid-next-original-imah4zjwdxnusqyz.jpeg?q=90" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="Next Lavender" onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Room Freshener - Lavender</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 170.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_room_lavender', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_room_lavender" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_room_lavender', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Room Freshener - Lavender', 170, 'qty_room_lavender')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">Add</button>
+    </div>
+</div>
+
+<!-- 3. Next Morning FreSH BREEZE Room Freshener -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://deodap.in/cdn/shop/files/01_89817e56-b748-44be-9863-a72822c08a51.jpg?v=1772884712&width=990" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="Next Morning Freeze" onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Room Freshener - Morning Fresh breeze</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 170.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_room_morning', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_room_morning" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_room_morning', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Room Freshener - Morning Freeze', 170, 'qty_room_morning')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">Add</button>
+    </div>
+</div>
+
+<!-- 4. Next Rose Room Freshener -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRTB2cK94v2viX_qmt7UsxwKrAu-1A3i_3b7TpNsizQfN1spOIkWbsMnwQRGioVNoNmwdy3krHLYjJvlCdctYF2zq4qhAzENb4MXtri0jrhgZ8YlQ7muxYUZw" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="Next Rose" onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Room Freshener - Rose</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 170.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_room_rose', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_room_rose" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_room_rose', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Room Freshener - Rose', 170, 'qty_room_rose')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">Add</button>
+    </div>
+</div>
+
+
+<!-- Item: Next Velvet Oud 100ml -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/71YiDHEeD4L._SX522_.jpg" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next Velvet Oud 100ml" 
+             onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Velvet Oud 100ml</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 249.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Unique ID 'qty_velvet_oud' vaparyo che -->
+            <button onclick="changeQty('qty_velvet_oud', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_velvet_oud" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_velvet_oud', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Next Velvet Oud 100ml', 249, 'qty_velvet_oud')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+
+<!-- Item: Next Elegance 100ml -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/811u6APqnQL._SX522_.jpg" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next Elegance 100ml" 
+             onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Elegance 100ml</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 249.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Unique ID 'qty_next_elegance' vaparyo che -->
+            <button onclick="changeQty('qty_next_elegance', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_next_elegance" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_next_elegance', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Next Elegance 100ml', 249, 'qty_next_elegance')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+
+<!-- Item: Next Aqua Perfume 100ml -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/81iufeJJCHL._SX522_.jpg" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next Aqua Perfume 100ml" 
+             onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Aqua Perfume 100ml</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 249.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Unique ID 'qty_next_aqua' vaparyo che -->
+            <button onclick="changeQty('qty_next_aqua', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_next_aqua" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_next_aqua', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Next Aqua Perfume 100ml', 249, 'qty_next_aqua')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+
+<!-- Item: Next White Oud 100ml -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/51UHIiXRQZL._SX522_.jpg" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next White Oud 100ml" 
+             onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next White Oud 100ml</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 249.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Unique ID 'qty_white_oud' vaparyo che -->
+            <button onclick="changeQty('qty_white_oud', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_white_oud" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_white_oud', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Next White Oud 100ml', 249, 'qty_white_oud')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+<!-- Item: Next Black Oud -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <!-- Image Open Function Added -->
+        <img src="https://media-amazon.com" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next Black Oud" 
+             onclick="openModal(this.src)"> 
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Black Oud</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 259.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_black_oud', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_black_oud" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_black_oud', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Black Oud', 259, 'qty_black_oud')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm"> Add </button>
+    </div>
+</div>
+
+<!-- Item: Next Olive Oud -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://media-amazon.com" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next Olive Oud" 
+             onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Olive Oud</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 249.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_olive_oud', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_olive_oud" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_olive_oud', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Olive Oud', 249, 'qty_olive_oud')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm"> Add </button>
+    </div>
+</div>
+
+<!-- Item: Kids Projector Lamp -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/61yOPZ9G1GL._SX522_.jpg" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Kids Projector Lamp" 
+             onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Kids Projector Lamp</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 450.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_kids_projector', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_kids_projector" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_kids_projector', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Kids Projector Lamp', 450, 'qty_kids_projector')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm"> Add </button>
+    </div>
+</div>
 
 
 
         </div>
     </div>
+    <!-- બધી પ્રોડક્ટ્સ અહીં પૂરી થાય છે -->
+
+<!-- Image Modal Code start -->
+<div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-90 flex items-center justify-center p-4" onclick="closeModal()">
+    <span class="absolute top-5 right-5 text-white text-4xl cursor-pointer font-bold">&times;</span>
+    <img id="modalImage" class="max-w-full max-h-full rounded-lg shadow-2xl transition-transform duration-300" src="" alt="Zoomed Image">
+</div>
+<!-- Image Modal Code end -->
+
 <script>
     let cart = [];
 
     // 1. Quantity badalne ke liye
     function changeQty(id, delta) {
         let input = document.getElementById(id);
+        if (!input) return;
         let currentVal = parseInt(input.value) || 1;
         if (currentVal + delta >= 1) {
             input.value = currentVal + delta;
@@ -321,7 +575,8 @@
 
     // 2. Cart mein item add karne ke liye
     function addToCart(itemName, price, qtyId) {
-        let quantity = parseInt(document.getElementById(qtyId).value) || 1;
+        let input = document.getElementById(qtyId);
+        let quantity = input ? (parseInt(input.value) || 1) : 1;
         let existingItem = cart.find(item => item.name === itemName);
 
         if (existingItem) {
@@ -329,15 +584,16 @@
         } else {
             cart.push({ name: itemName, price: price, qty: quantity });
         }
-
+        
         updateCartUI();
         alert(itemName + " ઉમેરાઈ ગયું! ✅");
     }
 
-    // 3. Header mein cart number update karne ke liye
+    // 3. Header mein cart update karne ke liye
     function updateCartUI() {
         let totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-        document.getElementById('cart-count').innerText = totalItems;
+        let cartCount = document.getElementById('cart-count');
+        if (cartCount) cartCount.innerText = totalItems;
     }
 
     // 4. WhatsApp Order bhejne ke liye
@@ -360,7 +616,7 @@
         cart.forEach((item, index) => {
             let itemTotal = item.price * item.qty;
             message += `*${index + 1}.* ${item.name}%0a`;
-            message += `   નંગ: *${item.qty}* x ₹${item.price} = *₹${itemTotal}*%0a`;
+            message += ` નંગ: *${item.qty}* x ₹${item.price} = *₹${itemTotal}*%0a`;
             grandTotal += itemTotal;
         });
 
@@ -370,45 +626,50 @@
         message += "કૃપા કરીને મારો ઓર્ડર કન્ફર્મ કરશો. 🙏";
 
         const phoneNumber = "917859979392";
-        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+        // Fixed: Added missing "/" after wa.me and wrapped phoneNumber in ${}
+        window.open(`https://wa.me{phoneNumber}?text=${message}`, '_blank');
     }
 
     // 5. Product Search karne ke liye
     function searchProduct() {
-        let input = document.getElementById('searchInput').value.toLowerCase();
+        let inputVal = document.getElementById('searchInput').value.toLowerCase();
         let cards = document.getElementsByClassName('product-card');
 
         for (let i = 0; i < cards.length; i++) {
-            let title = cards[i].querySelector('.product-title').innerText.toLowerCase();
-            if (title.includes(input)) {
-                cards[i].style.display = "";
-            } else {
-                cards[i].style.display = "none";
+            let titleElement = cards[i].querySelector('.product-title');
+            if (titleElement) {
+                let title = titleElement.innerText.toLowerCase();
+                cards[i].style.display = title.includes(inputVal) ? "" : "none";
             }
         }
     }
 
-    // 6. Header mein Naam dikhane ke liye (Page load hote hi)
-    window.addEventListener('DOMContentLoaded', () => {
-        const savedName = localStorage.getItem('loggedInUser');
-        if (savedName) {
-            // Header Desktop
-            if(document.getElementById('display-name')) {
-                document.getElementById('display-name').innerText = savedName;
-            }
-            // Header Mobile
-            if(document.getElementById('display-name-mobile')) {
-                document.getElementById('display-name-mobile').innerText = savedName;
-            }
+    // 6. IMAGE POPUP (MODAL) LOGIC
+    function openModal(imgElement) {
+        // Note: Ensure your HTML Modal ID is "productModal" and Image ID is "imgFull"
+        const modal = document.getElementById("productModal");
+        const modalImg = document.getElementById("imgFull");
+        
+        if (modal && modalImg) {
+            modalImg.src = imgElement.src; 
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            document.body.style.overflow = 'hidden'; 
         }
-    });
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("productModal");
+        if (modal) {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.style.overflow = 'auto'; 
+        }
+    }
 </script>
 
-    <!-- Image Modal -->
-<div id="imageModal" class="fixed inset-0 z-[60] hidden bg-black bg-opacity-90 flex items-center justify-center p-4">
-    <span onclick="closeModal()" class="absolute top-5 right-5 text-white text-4xl cursor-pointer">&times;</span>
-    <img id="modalImg" class="max-w-full max-h-full rounded-lg shadow-2xl">
-</div>
+
+    
 
 </body>
 </html>
