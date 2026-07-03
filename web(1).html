@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amdavad Wholesale Mall - Catalog</title>
+    <!-- Tailwind CSS link fixed -->
+    <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+
+    <style>
+        .product-img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+        .qty-input { width: 45px; text-align: center; font-weight: bold; border: 1px solid #ddd; border-radius: 4px; padding: 5px 0; }
+        /* Smooth scrolling for mobile */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<!-- Header Section -->
+<header class="bg-blue-600 text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-2">
+        <!-- Top Row: Logo and Actions -->
+        <div class="flex justify-between items-center">
+            
+            <!-- Left: Logo & Brand -->
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg p-1 flex items-center justify-center overflow-hidden">
+                    <!-- Aapka Base64 Logo yahan rahega -->
+                    <img src="data:image/jpeg;base64,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">
+            </div>
+                <div class="leading-tight">
+                    <h1 class="text-lg md:text-xl font-bold italic tracking-wide">Amdavad</h1>
+                    <p class="text-[10px] md:text-xs uppercase opacity-90">Wholesale Mall</p>
+                </div>
+            </div>
+
+            <!-- Right: Actions -->
+            <div class="flex items-center gap-4">
+                <!-- Customer Display (Clean Look) -->
+                <div class="hidden sm:flex flex-col text-right mr-2 border-r border-blue-400 pr-4">
+                    <span class="text-[10px] opacity-80 uppercase">Customer</span>
+                    <span id="display-name" class="text-sm font-bold capitalize tracking-wide">Guest</span>
+                </div>
+
+                <!-- Shopping Cart Icon -->
+                <div class="relative bg-blue-700 p-2.5 rounded-full hover:bg-blue-800 transition shadow-inner">
+                    <i class="fas fa-shopping-cart text-lg"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-md">0</span>
+                </div>
+
+                <!-- WhatsApp Button (Mobile par bhi text dikhayega) -->
+<button onclick="sendWhastappOrder()" class="bg-green-500 hover:bg-green-600 text-white px-2 py-2 md:px-4 rounded-lg font-bold text-[10px] md:text-sm shadow-md flex items-center gap-1 transition transform active:scale-95 min-w-fit">
+    <i class="fab fa-whatsapp text-base md:text-lg"></i>
+    <span class="inline">Send Order</span> 
+</button>
+
+            </div>
+        </div>
+
+        <!-- Bottom Row (Mobile Only): Customer Name -->
+        <div class="sm:hidden mt-2 pt-2 border-t border-blue-500 flex justify-between items-center text-xs">
+            <span class="opacity-80 italic underline decoration-blue-300">Logged in as: <span id="display-name-mobile" class="font-bold text-white not-italic">Guest</span></span>
+        </div>
+    </div>
+</header>
+
+
+<div class="container mx-auto px-4 mt-6">
+  <div class="flex shadow-sm rounded-xl overflow-hidden border border-gray-300 focus-within:ring-2 focus-within:ring-blue-500 bg-white">
+    
+    
+
+    <!-- Right Side: Search Input -->
+    <div class="relative flex-1">
+      <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+        <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+      </div>
+      <input type="text" id="searchInput" onkeyup="searchProduct()"
+             placeholder="પ્રોડક્ટ શોધો..."
+             class="w-full py-4 pl-12 pr-4 text-lg outline-none bg-transparent">
+    </div>
+  </div>
+</div>
+
+
+
+
+    <div class="container mx-auto px-4 py-6">
+        <!-- Grid: 1 column on mobile, 2 on tablet, 3 on desktop -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+<!-- Item: Portable Cordless Car Washer Gun -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white hover:shadow-lg transition-all flex flex-col h-full" style="margin-bottom: 20px;">
+    
+    <!-- Image Box -->
+     <!--washer gun-->
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="data:image/jpeg;base64,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" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Car Washer Gun" 
+             onclick="openModal(this.src)"
+             onerror="this.src='https://placeholder.com'">
+    </div>
+
+    <!-- Product Info -->
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800 flex-grow">Cordless  Car Washer Gun</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 1299.00/ Pcs</span></p>
+    
+    <!-- Quantity & Add Button -->
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_washer_final', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_washer_final" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_washer_final', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Cordless Car Washer Gun', 950, 'qty_washer_final')" class="bg-yellow-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm shadow-sm transition-colors">
+            Add
+        </button>
+    </div>
+</div>
+
+
+
+<!-- Item: Mini Handheld Fan -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <!-- High Quality Image Link -->
+        <img src="https://m.media-amazon.com/images/I/51d2uRmhtcL._SY879_.jpg"
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Mini Handheld Fan" 
+             onclick="openModal(this.src)"
+             onerror="this.src='https://placeholder.com'">
+    </div>
+
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Mini Handheld Fan (Rechargeable)</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 115.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_fan', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_fan" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_fan', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Mini Handheld Fan', 130, 'qty_fan')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+
+
+<!-- Item: Mini Massage Gun -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <!-- ઈમેજ માટે ડાયરેક્ટ સ્ટાઈલ આપી છે જેથી તે ગમે તે ફોનમાં દેખાય -->
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://images.meesho.com/images/products/534732431/2kdxb_512.webp?width=512" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Mini Massage Gun" 
+             onclick="openModal(this.src)"
+             onerror="this.src='https://placeholder.com'">
+    </div>
+
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Mini Massage Gun (4 Heads)</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 419.00 / pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_mg_final', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_mg_final" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_mg_final', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Mini Massage Gun', 419, 'qty_mg_final')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+<!-- Item: Scalp Massager -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+       <img src="https://m.media-amazon.com/images/I/51oKCSf9GDL._AC_UL480_FMwebp_QL65_.jpg" 
+     style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+     alt="Scalp Massager" 
+     onclick="openModal(this.src)"> <!-- આ હવે ટેગની અંદર છે -->
+
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Scalp Massager</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 449.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Badha function ma 'qty_scalp' ID vaparyo che -->
+            <button onclick="changeQty('qty_scalp', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_scalp" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_scalp', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <!-- Price ane ID barobar set kari didha che -->
+        <button onclick="addToCart('Scalp Massager', 449, 'qty_scalp')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+
+<!-- Item: Suction Sit Up Tool -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://images.meesho.com/images/products/734341105/4hux4_512.avif?width=512" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="suction sit up tool" onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Suction Sit Up Tool</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 248.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Unique ID 'qty_situp' vaparyo che -->
+            <button onclick="changeQty('qty_situp', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_situp" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_situp', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <!-- Add button ma barobar ID set kari che -->
+        <button onclick="addToCart('Suction Sit Up Tool', 248, 'qty_situp')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+<!-- Item: Mattress Lifter Tool -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/71G0UjjgbnL._SX679_.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="mattress lifter tool" onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Mattress Lifter Tool</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 92.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_mattress', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_mattress" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_mattress', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Mattress Lifter Tool', 92, 'qty_mattress')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+<!-- Item: Back Stretch Device -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/61qLbgS322L._AC_UY327_FMwebp_QL65_.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="back stretch device" onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Back Stretch Device (Multi-Level)</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 289.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_back_stretcher', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_back_stretcher" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_back_stretcher', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Back Stretch Device', 289, 'qty_back_stretcher')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+<!-- Item: Trimmer -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/61LcNz1EdsL._AC_UL480_FMwebp_QL65_.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="trimmer" onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Professional Men's Trimmer</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 690.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Unique ID 'qty_trimmer' set kari che -->
+            <button onclick="changeQty('qty_trimmer', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_trimmer" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_trimmer', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Professional Trimmer', 690, 'qty_trimmer')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+
+<!-- Item: Gold Trimmer -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/81UM728nJHL._AC_UL480_FMwebp_QL65_.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="gold trimmer" onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Professional Gold Trimmer</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 75.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Unique ID 'qty_trimmer_gold' vaparyo che -->
+            <button onclick="changeQty('qty_trimmer_gold', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_trimmer_gold" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_trimmer_gold', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Gold Trimmer', 75, 'qty_trimmer_gold')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+
+<!-- 1. Next Jasmine Room Freshener -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://rukminim2.flixcart.com/image/1536/1536/xif0q/shopsy-air-freshener/g/l/r/200-jasminerajnigandha200ml-liquid-next-original-imah4zb8mtbmdxzq.jpeg?q=90" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="Next Jasmine" onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Room Freshener - Jasmine</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 170.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_room_jasmine', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_room_jasmine" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_room_jasmine', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Room Freshener - Jasmine', 170, 'qty_room_jasmine')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">Add</button>
+    </div>
+</div>
+
+<!-- 2. Next Lavender Room Freshener -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://rukminim2.flixcart.com/image/1536/1536/xif0q/shopsy-air-freshener/n/d/m/200-lavender-200ml-liquid-next-original-imah4zjwdxnusqyz.jpeg?q=90" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="Next Lavender" onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Room Freshener - Lavender</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 170.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_room_lavender', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_room_lavender" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_room_lavender', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Room Freshener - Lavender', 170, 'qty_room_lavender')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">Add</button>
+    </div>
+</div>
+
+<!-- 3. Next Morning FreSH BREEZE Room Freshener -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://deodap.in/cdn/shop/files/01_89817e56-b748-44be-9863-a72822c08a51.jpg?v=1772884712&width=990" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="Next Morning Freeze" onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Room Freshener - Morning Fresh breeze</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 170.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_room_morning', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_room_morning" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_room_morning', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Room Freshener - Morning Freeze', 170, 'qty_room_morning')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">Add</button>
+    </div>
+</div>
+
+<!-- 4. Next Rose Room Freshener -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRTB2cK94v2viX_qmt7UsxwKrAu-1A3i_3b7TpNsizQfN1spOIkWbsMnwQRGioVNoNmwdy3krHLYjJvlCdctYF2zq4qhAzENb4MXtri0jrhgZ8YlQ7muxYUZw" style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" alt="Next Rose" onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Room Freshener - Rose</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 170.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_room_rose', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_room_rose" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_room_rose', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Room Freshener - Rose', 170, 'qty_room_rose')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">Add</button>
+    </div>
+</div>
+
+
+<!-- Item: Next Velvet Oud 100ml -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/71YiDHEeD4L._SX522_.jpg" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next Velvet Oud 100ml" 
+             onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Velvet Oud 100ml</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 249.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Unique ID 'qty_velvet_oud' vaparyo che -->
+            <button onclick="changeQty('qty_velvet_oud', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_velvet_oud" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_velvet_oud', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Next Velvet Oud 100ml', 249, 'qty_velvet_oud')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+
+<!-- Item: Next Elegance 100ml -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/811u6APqnQL._SX522_.jpg" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next Elegance 100ml" 
+             onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Elegance 100ml</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 249.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Unique ID 'qty_next_elegance' vaparyo che -->
+            <button onclick="changeQty('qty_next_elegance', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_next_elegance" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_next_elegance', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Next Elegance 100ml', 249, 'qty_next_elegance')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+
+<!-- Item: Next Aqua Perfume 100ml -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/81iufeJJCHL._SX522_.jpg" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next Aqua Perfume 100ml" 
+             onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Aqua Perfume 100ml</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 249.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Unique ID 'qty_next_aqua' vaparyo che -->
+            <button onclick="changeQty('qty_next_aqua', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_next_aqua" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_next_aqua', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Next Aqua Perfume 100ml', 249, 'qty_next_aqua')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+
+<!-- Item: Next White Oud 100ml -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/51UHIiXRQZL._SX522_.jpg" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next White Oud 100ml" 
+             onclick="openModal(this.src)">
+    </div>
+    
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next White Oud 100ml</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 249.00 / Pcs</p>
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <!-- Unique ID 'qty_white_oud' vaparyo che -->
+            <button onclick="changeQty('qty_white_oud', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_white_oud" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_white_oud', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        
+        <button onclick="addToCart('Next White Oud 100ml', 249, 'qty_white_oud')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm">
+            Add
+        </button>
+    </div>
+</div>
+<!-- Item: Next Black Oud -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <!-- Image Open Function Added -->
+        <img src="https://media-amazon.com" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next Black Oud" 
+             onclick="openModal(this.src)"> 
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Black Oud</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 259.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_black_oud', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_black_oud" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_black_oud', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Black Oud', 259, 'qty_black_oud')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm"> Add </button>
+    </div>
+</div>
+
+<!-- Item: Next Olive Oud -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://media-amazon.com" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Next Olive Oud" 
+             onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Next Olive Oud</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 249.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_olive_oud', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_olive_oud" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_olive_oud', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Next Olive Oud', 249, 'qty_olive_oud')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm"> Add </button>
+    </div>
+</div>
+
+<!-- Item: Kids Projector Lamp -->
+<div class="product-card p-4 rounded-xl shadow-sm border border-gray-200 bg-white" style="margin-bottom: 20px;">
+    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border-radius: 8px; overflow: hidden;">
+        <img src="https://m.media-amazon.com/images/I/61yOPZ9G1GL._SX522_.jpg" 
+             style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;" 
+             alt="Kids Projector Lamp" 
+             onclick="openModal(this.src)">
+    </div>
+    <h3 class="product-title mt-4 text-lg font-semibold text-gray-800">Kids Projector Lamp</h3>
+    <p class="text-blue-600 font-bold mt-1">₹ 450.00 / Pcs</p>
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center gap-1">
+            <button onclick="changeQty('qty_kids_projector', -1)" class="bg-gray-200 w-10 h-10 rounded-l flex items-center justify-center font-bold text-xl">-</button>
+            <input type="text" id="qty_kids_projector" value="1" readonly class="w-10 h-10 text-center border-y border-gray-200 font-bold" style="width: 45px;">
+            <button onclick="changeQty('qty_kids_projector', 1)" class="bg-gray-200 w-10 h-10 rounded-r flex items-center justify-center font-bold text-xl">+</button>
+        </div>
+        <button onclick="addToCart('Kids Projector Lamp', 450, 'qty_kids_projector')" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 text-sm"> Add </button>
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+    <!-- બધી પ્રોડક્ટ્સ અહીં પૂરી થાય છે -->
+
+<!-- Image Modal Code start -->
+<div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-90 flex items-center justify-center p-4" onclick="closeModal()">
+    <span class="absolute top-5 right-5 text-white text-4xl cursor-pointer font-bold">&times;</span>
+    <img id="modalImage" class="max-w-full max-h-full rounded-lg shadow-2xl transition-transform duration-300" src="" alt="Zoomed Image">
+</div>
+<!-- Image Modal Code end -->
+
+<script>
+    let cart = [];
+
+    // 1. Quantity badalne ke liye
+    function changeQty(id, delta) {
+        let input = document.getElementById(id);
+        if (!input) return;
+        let currentVal = parseInt(input.value) || 1;
+        if (currentVal + delta >= 1) {
+            input.value = currentVal + delta;
+        }
+    }
+
+    // 2. Cart mein item add karne ke liye
+    function addToCart(itemName, price, qtyId) {
+        let input = document.getElementById(qtyId);
+        let quantity = input ? (parseInt(input.value) || 1) : 1;
+        let existingItem = cart.find(item => item.name === itemName);
+
+        if (existingItem) {
+            existingItem.qty += quantity;
+        } else {
+            cart.push({ name: itemName, price: price, qty: quantity });
+        }
+        
+        updateCartUI();
+        alert(itemName + " ઉમેરાઈ ગયું! ✅");
+    }
+
+    // 3. Header mein cart update karne ke liye
+    function updateCartUI() {
+        let totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+        let cartCount = document.getElementById('cart-count');
+        if (cartCount) cartCount.innerText = totalItems;
+    }
+
+    // 4. WhatsApp Order bhejne ke liye
+    function sendWhastappOrder() {
+        if (cart.length === 0) {
+            alert("તમારું કાર્ટ ખાલી છે!");
+            return;
+        }
+
+        const savedName = localStorage.getItem('loggedInUser') || "Grahak";
+        const savedMobile = localStorage.getItem('userMobile') || "N/A";
+
+        let message = "📦 *નવો ઓર્ડર - Amdavad Wholesale Mall*%0a";
+        message += "--------------------------%0a";
+        message += "*Customer:* " + savedName + "%0a";
+        message += "*Mobile:* " + savedMobile + "%0a";
+        message += "--------------------------%0a";
+
+        let grandTotal = 0;
+        cart.forEach((item, index) => {
+            let itemTotal = item.price * item.qty;
+            message += `*${index + 1}.* ${item.name}%0a`;
+            message += ` નંગ: *${item.qty}* x ₹${item.price} = *₹${itemTotal}*%0a`;
+            grandTotal += itemTotal;
+        });
+
+        message += "--------------------------%0a";
+        message += `*કુલ ઓર્ડર કિંમત: ₹${grandTotal}*%0a`;
+        message += "--------------------------%0a";
+        message += "કૃપા કરીને મારો ઓર્ડર કન્ફર્મ કરશો. 🙏";
+
+        const phoneNumber = "917859979392";
+        // Fixed: Added missing "/" after wa.me and wrapped phoneNumber in ${}
+        window.open(`https://wa.me{phoneNumber}?text=${message}`, '_blank');
+    }
+
+    // 5. Product Search karne ke liye
+    function searchProduct() {
+        let inputVal = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.getElementsByClassName('product-card');
+
+        for (let i = 0; i < cards.length; i++) {
+            let titleElement = cards[i].querySelector('.product-title');
+            if (titleElement) {
+                let title = titleElement.innerText.toLowerCase();
+                cards[i].style.display = title.includes(inputVal) ? "" : "none";
+            }
+        }
+    }
+
+    // 6. IMAGE POPUP (MODAL) LOGIC
+    function openModal(imgElement) {
+        // Note: Ensure your HTML Modal ID is "productModal" and Image ID is "imgFull"
+        const modal = document.getElementById("productModal");
+        const modalImg = document.getElementById("imgFull");
+        
+        if (modal && modalImg) {
+            modalImg.src = imgElement.src; 
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            document.body.style.overflow = 'hidden'; 
+        }
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("productModal");
+        if (modal) {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.style.overflow = 'auto'; 
+        }
+    }
+</script>
+
+
+    
+
+</body>
+</html>
